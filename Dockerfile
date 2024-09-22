@@ -1,5 +1,6 @@
 FROM alpine:3.16
 RUN apk add --no-cache bash netcat-openbsd cowsay fortune
+RUN sudo apt install fortune-mod cowsay -y
 COPY wisecow.sh /usr/src/app/wisecow.sh
 RUN chmod +x /usr/src/app/wisecow.sh
 WORKDIR /usr/src/app
