@@ -1,7 +1,7 @@
-FROM alpine:3.16
-RUN apk add --no-cache bash netcat-openbsd cowsay fortune
-RUN sudo apt install fortune-mod cowsay -y
-RUN sudo apt install awscli -y
+FROM alpine:3.20
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v3.20/community" >> /etc/apk/repositories \
+    && apk update \
+    && apk add --no-cache fortune cowsay
 COPY wisecow.sh /usr/src/app/wisecow.sh
 COPY health_monitor.sh /usr/src/app/health_monitor.sh
 COPY backup_script.sh /usr/src/app/backup_script.sh
